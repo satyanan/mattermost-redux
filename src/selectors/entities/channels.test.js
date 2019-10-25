@@ -1130,7 +1130,7 @@ describe('Selectors.Channels', () => {
                 sidebarPrefs.favorite_at_top === 'true',
             );
             assert.notDeepEqual(fromModifiedState, fromRecencyInChan5State);
-            assert.ok(fromRecencyInChan5State[0].items[0] === chan5.id);
+            assert.ok(fromRecencyInChan5State[0].items[2] === chan5.id);
 
             const chan6 = {...testState.entities.channels.channels[channel6.id]};
             chan6.last_post_at = (new Date()).getTime() + 500;
@@ -1158,7 +1158,7 @@ describe('Selectors.Channels', () => {
             );
 
             assert.notDeepEqual(fromRecencyInChan5State, fromRecencyInChan6State);
-            assert.ok(fromRecencyInChan6State[0].items[0] === chan6.id);
+            assert.ok(fromRecencyInChan6State[0].items[2] === chan6.id);
         });
     });
 

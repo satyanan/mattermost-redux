@@ -148,6 +148,17 @@ export function filterChannels(unreadIds: Array<string>, favoriteIds: Array<stri
         });
     }
 
+    // Make sure unread channels are listed before read channels within each group i.e. Public, Private
+    if (!unreadsAtTop) {
+        const readChannels = channels.filter((id) => {
+            return !unreadIds.includes(id);
+        });
+        channels = channels.filter((id) => {
+            return unreadIds.includes(id);
+        });
+        channels = channels.concat(readChannels);
+    }
+
     return channels;
 }
 
